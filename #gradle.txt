@@ -1,0 +1,81 @@
+#executable jar file using gradle java application 
+
+add this to build.gradle
+
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+application {
+    mainClass = 'org.example.Main'
+}
+
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'org.example.Main'
+    }
+}
+
+gradle jar // terminal
+
+gradle run //terminal
+
+java -jar build\libs\sample2-1.0-SNAPSHOT.jar //ur jarfile name in terminal 
+
+
+
+#Upload the website to GitHub and host it using GitHub Pages using gradle 
+
+resources/website/index.html,style.css
+
+build.gradle:
+
+plugins {
+    id 'java'
+    id 'application'
+}
+
+task copyWebsite(type: Copy) {
+    from 'src/main/resources/website'
+    into 'docs'
+}
+
+gradle copywebsite
+
+git init
+git add .
+git commit -m"gradle test"
+git remote add origin "https://github.com/Dev-bhuvan19/sample2.git"
+git push origin master 
+
+src/test/java/org.test/websitetest.java 
+
+build gradle :
+
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Source: https://mvnrepository.com/artifact/org.testng/testng
+    testImplementation("org.testng:testng:7.12.0")
+    testImplementation 'org.seleniumhq.selenium:selenium-java:4.53.0'
+}
+
+test{
+    useTestNG()
+}
+
